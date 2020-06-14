@@ -1,7 +1,7 @@
 # Send_email
 
 ### Sending Asynchronous Email Messages
-### Practice Celery + Django3 and Redis in Docker
+### Practice Celery + Flower +  Django3 and Redis on Docker
 
 
 #### Run redis on docker:
@@ -19,7 +19,15 @@ python manage.py runserver
 celery -A send_email worker -l info
 ```
 
+#### Run Flower:
+```
+flower -A send_email --port=5555
+```
+
+#### If you want the task to run at regular intervals
 #### Run the periodic task scheduler:
 ```
 celery -A send_email beat -l info
 ```
+
+#### View Flower http://127.0.0.1:5555/
